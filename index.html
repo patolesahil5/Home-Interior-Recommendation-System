@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomeInterioRecommendationSystem</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+<style>
+    .text-white{
+        color:white
+    }
+    .text-black{
+        color:black
+    }
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    }
+
+    li {
+    float: left;
+    padding-right: 20px;
+    }
+
+    li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+    }
+    .style{
+        font-size:30px;
+        color:white;
+        text-decoration:none;
+        padding-left: 20px;
+    }
+    .styleName{
+    font-size:20px;
+    }
+    .styleName2{
+    font-size:15px;
+    }
+    .heading{
+    padding-top: 30px;
+    text-align: center;
+    }
+    .nav-size{
+    font-size: 20px;
+    }
+</style>
+<body style="background-color:white">
+
+    <nav class="navbar" style="background-color:#000000">
+        <a class="text-white style" href="/">HomeInterio</a>
+        <ul>
+            <li><a class="nav-size" href="/">Home</a></li>
+            <li><a class="nav-size" href="/recommend">Get Recommendations</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-black heading" style="font-size:50px">Top Home Interior Recommendations</h1>
+            </div>
+
+            {% for i in range(Product_Name|length) %}
+                <div class="col-md-3" style="margin-top:50px">
+                    <div class="card">
+                        <div class="card-body">
+                            <img class="card-img-top" src="{{ Product_Image[i] }}">
+                            <p class="text-black styleName">Product Name - {{ Product_Name[i] }}</p>
+                            <h4 class="text-black styleName2">Supplier - {{ Product_brand[i] }}</h4>
+                            <h4 class="text-black styleName2">Votes - {{ Votes[i] }}</h4>
+                            <h4 class="text-black styleName2">Rating - {{ Ratings[i] }}</h4>
+                            <h4 class="text-black styleName2">Price-Range - {{ Price[i] }}</h4>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+</body>
+</html>
